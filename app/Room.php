@@ -23,4 +23,6 @@ class Room extends Model
         'people_quontaty',
         'img'
     ];
+
+    public $timestamps = false;
 }

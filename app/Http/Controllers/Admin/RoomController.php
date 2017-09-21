@@ -7,41 +7,16 @@ use App\Room;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class AddroomController extends Controller
+class RoomController extends Controller
 {
    public function index ()
    {
-        /*$str = '|apples}';
-
-        function startsWith($needle, $haystack)
-        {
-            return preg_match('/' . preg_quote($needle, '/') . '/' . $haystack);
-        }
-        function endsWith($needle, $haystack)
-        {
-            return preg_match('/' . preg_quote($needle, '/') . '/' . $haystack);
-        }
-       /*function startsWith($needle, $haystack)
-       {
-            return !strncmp($haystack, $needle, strlen($needle));
-       }
-       function endsWith($needle, $haystack)
-       {
-            $length = strlen($needle);
-            if($length == 0) {
-                return true;
-            }
-            return (substr($haystack, -$length) === $needle);
-       }
-
-       echo startsWith($str, '|');
-       echo endsWith($str, '}');
-        //var_dump(startsWith($str, '|'));
-        //var_dump(endsWith($str, '}'));*/
-    return view ('admin/addroom');
+       $data['rooms'] = Room::get()->toArray();
+       return view('admin/showRoom', $data);
+       //return view ('admin/addroom');
    }
 
-   public function store(Request $request)
+   public function addRoom(Request $request)
     {
         if($request->hasFile('img') && $request->file('img')->isValid()) {
             $imageName = $request->file('img')->getClientOriginalName();
@@ -51,6 +26,6 @@ class AddroomController extends Controller
         $data = $request->all();
         $data['img'] = $newImageName;
         Room::create($data);
-        return redirect()->route('addroom');
+        return redirect()->route('rooms');
     }
 }
