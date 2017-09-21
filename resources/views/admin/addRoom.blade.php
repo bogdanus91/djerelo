@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<form  align="center" method="post" action="{{route('addroom_post')}}" enctype="multipart/form-data" id="addroom">
+<form  align="center" method="post" action="{{route('addroom')}}" enctype="multipart/form-data" id="addroom">
     {{csrf_field()}}
   <p>Номер комнаты</p>
   <input type="text" name="room_number">
@@ -16,8 +16,8 @@
 <p>Тип комнаты на Украинском языке</p>
 <input type="text" name="type_ua"> 
 <p>Тип комнаты на Английском языке</p>
-<input type="text" name="type_en"> 
-  <p>Краткое описание на русском языке</p>
+<input type="text" name="type_en">
+    <p>Краткое описание на русском языке</p>
     <textarea name="short_description_ru" cols="1000" maxlength="1000" ></textarea>
      <p>Краткое описание на Украинском языке</p>
     <textarea name="short_description_ua" cols="1000" maxlength="1000" form="addroom"></textarea>
