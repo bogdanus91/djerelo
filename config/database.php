@@ -45,7 +45,11 @@ return [
             'port' => env('DB_PORT', '3306'),
             'database' => env('DB_DATABASE', 'djerelo'),
             'username' => env('DB_USERNAME', 'root'),
+<<<<<<< HEAD
             'password' => env('DB_PASSWORD', ''),
+=======
+            'password' => env('DB_PASSWORD', 'root'),
+>>>>>>> c07fa31218d263bb082dca7be1633cd643ec78e8
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
@@ -58,9 +62,15 @@ return [
             'driver' => 'pgsql',
             'host' => env('DB_HOST', '127.0.0.1'),
             'port' => env('DB_PORT', '5432'),
+<<<<<<< HEAD
             'database' => env('DB_DATABASE', 'forge'),
             'username' => env('DB_USERNAME', 'forge'),
             'password' => env('DB_PASSWORD', ''),
+=======
+            'database' => env('DB_DATABASE', 'djerelo'),
+            'username' => env('DB_USERNAME', 'root'),
+            'password' => env('DB_PASSWORD', 'root'),
+>>>>>>> c07fa31218d263bb082dca7be1633cd643ec78e8
             'charset' => 'utf8',
             'prefix' => '',
             'schema' => 'public',
@@ -71,9 +81,15 @@ return [
             'driver' => 'sqlsrv',
             'host' => env('DB_HOST', 'localhost'),
             'port' => env('DB_PORT', '1433'),
+<<<<<<< HEAD
             'database' => env('DB_DATABASE', 'forge'),
             'username' => env('DB_USERNAME', 'forge'),
             'password' => env('DB_PASSWORD', ''),
+=======
+            'database' => env('DB_DATABASE', 'djerelo'),
+            'username' => env('DB_USERNAME', 'root'),
+            'password' => env('DB_PASSWORD', 'root'),
+>>>>>>> c07fa31218d263bb082dca7be1633cd643ec78e8
             'charset' => 'utf8',
             'prefix' => '',
         ],
