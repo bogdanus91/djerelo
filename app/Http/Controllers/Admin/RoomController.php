@@ -13,19 +13,52 @@ class RoomController extends Controller
    {
        $data['rooms'] = Room::get()->toArray();
        return view('admin/showRoom', $data);
-       //return view ('admin/addroom');
+       
    }
 
    public function addRoom(Request $request)
     {
+     if ($request->isMethod('get'))
+     {
+        return view ('admin/addRoom');
+     
+    }
+    else
+    {  
+        $data = $request->all();
+        
         if($request->hasFile('img') && $request->file('img')->isValid()) {
             $imageName = $request->file('img')->getClientOriginalName();
             $newImageName = time() .$imageName;
             $request->file('img')->move(public_path('uploads'), $newImageName);
+            $data['img'] = $newImageName;
+            
         }
-        $data = $request->all();
-        $data['img'] = $newImageName;
         Room::create($data);
         return redirect()->route('rooms');
+    }
+    }   
+    public function editRoom (Request $request)
+    {
+        $id=$request->get('id');
+        if ($request->isMethod('get'))
+        {
+       
+            $data['roomData'] = Room::where('id', $id)->get()->toArray();
+           //dd($data);
+            return view('admin/editRoom', $data);
+        
+    }
+    if ($request->isMethod('post'))
+    {
+        $data = $request->all();
+       //dd($data);
+        //echo 'test';
+        if(isset($data['_token'])) {
+            unset($data['_token']);
+        }
+        Room::where('id', $id)->update($data); 
+        return redirect()->route('rooms');
+    }
     }
 }
